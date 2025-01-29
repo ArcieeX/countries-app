@@ -10,7 +10,7 @@ const SearchBar = ({ data, onSearch }) => {
   };
 
   return (
-    <div style={{ margin: '20px auto', maxWidth: '700px', textAlign: 'center' }}>
+    <div className="search-container" style={{ margin: '20px auto', maxWidth: '700px', textAlign: 'center' }}>
       <input
       className='search-bar'
         type="text"

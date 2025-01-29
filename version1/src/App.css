@@ -13,6 +13,8 @@
   top : 10px;
   height: 80px;
   box-shadow: 0px 2px 4px 0px #0000000E;
+  padding: 10px;
+  margin: 0;
 }
 .navbar li {
   font-family: Nunito Sans;
@@ -26,15 +28,35 @@
 .home {
   background-color: white;
   color: black;
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr ; */
+ 
+}
+.home-components{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  padding: 3px;
+}
+.search-container {
+
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px; */
+}
+.filtered-data {
+  grid-row: 2/3;
+  grid-column: 1/4;
+
 }
 .ul-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr ;
   gap: 1rem;
+ 
 }
 .saved-container{
   display: flex;
@@ -43,6 +65,10 @@
   align-items: center;
   padding: 3px;
 
+}
+.saved-countries {
+  background-color: #FAFAFA;
+  color: black
 }
 
 .home-components{
@@ -62,4 +88,15 @@
   border-radius: 5px;
   color: black;
 
+}
+
+/* country page */
+.country-page{
+  /* display: flex; */
+  /* flex-direction: column;
+  justify-content: center; */
+  /* align-items: center; */
+  padding: px;
+  margin: 2px;
+  /* background-color: white; */
 }

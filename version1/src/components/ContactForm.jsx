@@ -31,7 +31,7 @@ const Form = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+            style={{ width: '100%', padding: '8px', marginTop: '5px', background: '#FFFFFF' }}
             required
           />
         </div>
@@ -43,7 +43,7 @@ const Form = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+            style={{ width: '100%', padding: '8px', marginTop: '5px', background: '#FFFFFF' }}
             required
           />
         </div>
@@ -54,11 +54,11 @@ const Form = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
+            style={{ width: '100%', padding: '8px', marginTop: '5px', background: '#FFFFFF' }}
             required
           />
         </div>
-        <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer' }}>
+        <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer', background: '#7672ce' }}>
           Submit
         </button>
       </form>

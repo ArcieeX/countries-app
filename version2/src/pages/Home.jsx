@@ -1,17 +1,21 @@
+import { Link } from "react-router-dom";
+import CountryCard from "../components/CountryCard.jsx";
 import { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar.jsx";
 import {
   NativeSelectField,
   NativeSelectRoot,
 } from "../components/ui/native-select";
-import { Link } from "react-router-dom";
+
 
 const Home = () => {
   const [data, setData] = useState([]); // API data
   const [regions, setRegions] = useState([]); // Unique regions
   const [selectedRegion, setSelectedRegion] = useState(""); // Selected region
   const [searchTerm, setSearchTerm] = useState(""); // Search term
-  const [filteredData, setFilteredData] = useState([]); // Filtered data from API based on region and search
+  const [filteredData, setFilteredData] = useState([]); // Filtered data based on filters
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
 
   // Fetch API data
   useEffect(() => {
@@ -21,12 +25,15 @@ const Home = () => {
         const result = await response.json();
 
         setData(result);
+        setLoading(false);
 
         // Extract unique regions
         const uniqueRegions = [...new Set(result.map((item) => item.region))];
         setRegions(uniqueRegions);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error(error);
+        setError("Failed to fetch countries. Please try again later.");
+        setLoading(false);
       }
     };
 
@@ -59,43 +66,45 @@ const Home = () => {
     setSearchTerm(query);
   };
 
+  if (loading) {
+    return <p>Loading countries...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <div className="home">
-      <h1>Countries of the World</h1>
+      <div className="home-components">
+        <SearchBar onSearch={handleSearch} />
 
-      {/* Search Bar */}
-      <SearchBar onSearch={handleSearch} />
-
-      {/* Region Dropdown */}
-      <div style={{ margin: "20px auto", maxWidth: "300px" }}>
-        <NativeSelectRoot size="sm" width="240px">
-          <NativeSelectField
-            placeholder="Filter by Region"
-            items={regions}
-            onChange={handleRegionChange}
-            value={selectedRegion}
-          />
-        </NativeSelectRoot>
+        {/* Region Dropdown */}
+        <div
+          className="dropdown-container"
+          style={{ margin: "20px auto", maxWidth: "200px" }}
+        >
+          <NativeSelectRoot size="sm" width="240px">
+            <NativeSelectField
+              placeholder="Filter by Region"
+              items={regions.map((region) => ({ label: region, value: region }))}
+              onChange={handleRegionChange}
+              value={selectedRegion}
+            />
+          </NativeSelectRoot>
+        </div>
       </div>
 
       {/* Filtered Data Display */}
       <div className="filtered-data">
         {filteredData.length > 0 ? (
           <ul className="ul-grid">
-            {filteredData.map((item, index) => (
-              <Link key={index} to={`/IndividualCountry/${item.name.common}`}>
-                <li key={item.name.common}>
-                  <img src={item.flags.png} alt={item.flags.alt || "Flag"} />
-                  <h2>{item.name.common}</h2>
-                  <p>Population: {item.population.toLocaleString()}</p>
-                  <p>Region: {item.region}</p>
-                  <p>Capital: {item.capital?.join(", ") || "N/A"}</p>
-                </li>
-              </Link>
+            {filteredData.map((country, index) => (
+              <CountryCard country={country} key={index} />
             ))}
           </ul>
         ) : (
-          <p>No data available.</p>
+          <p>No countries match your filters.</p>
         )}
       </div>
     </div>
@@ -103,3 +112,4 @@ const Home = () => {
 };
 
 export default Home;
+
