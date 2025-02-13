@@ -77,7 +77,7 @@ const CountryCard = ({ data }) => {
 
 
   const handleSaveCountry = () => {
-    let savedCountries = JSON.parse((localStorage.getItem("SavedCountries"))) || [];
+    let savedCountries = JSON.parse(localStorage.getItem("SavedCountries")) || [];
     let countryIndex = savedCountries.findIndex((country) => country.name === data.name.common);
 
     if (countryIndex === -1) {

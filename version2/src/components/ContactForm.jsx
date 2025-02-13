@@ -76,7 +76,7 @@ const Form = () => {
           Submit
         </button>
       </form>
-  )};
+  )}
     </div>
   );
 };

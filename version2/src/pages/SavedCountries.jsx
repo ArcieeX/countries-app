@@ -47,9 +47,3 @@ const SavedCountries = () => {
         </Box>
     </Box>  
        
-      
-    
-  );
-};
-
-export default SavedCountries;
