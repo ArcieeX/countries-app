@@ -1,6 +1,6 @@
 'use client'
 
-import { ClientOnly, IconButton, Skeleton , Text } from '@chakra-ui/react'
+import { ClientOnly, IconButton, Skeleton } from '@chakra-ui/react'
 import { ThemeProvider, useTheme } from 'next-themes'
 
 import * as React from 'react'
@@ -53,7 +53,6 @@ export const ColorModeButton = React.forwardRef(
             },
           }}
         >
-          <Text><strong>Dark Mode</strong></Text>
           <ColorModeIcon />
         </IconButton>
       </ClientOnly>

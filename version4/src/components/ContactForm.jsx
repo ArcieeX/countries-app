@@ -1,11 +1,10 @@
 import  { useState, useEffect } from 'react';
-import { Text } from "@chakra-ui/react";
 
 const Form = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    bio: '',
+    message: '',
 
   });
   const [user, setUser] = useState('');
@@ -29,13 +28,13 @@ const Form = () => {
     console.log('Form submitted:', formData);
     
     // Clear the form
-    setFormData({ name: '', email: '', bio: '' });
+    setFormData({ name: '', email: '', message: '' });
     localStorage.setItem("profile", JSON.stringify(formData));
   };
 
   return (
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
-      {user ? ( <Text fontWeight="bold" >Welcome {user}</Text> ) : ( 
+      {user ? ( <h2>Welcome {user}</h2> ) : ( 
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '10px' }}>
           <label htmlFor="name">Name:</label>
@@ -62,10 +61,10 @@ const Form = () => {
           />
         </div>
         <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="bio">Bio:</label>
+          <label htmlFor="message">Message:</label>
           <textarea
-            id="bio"
-            name="bio"
+            id="message"
+            name="message"
             value={formData.message}
             onChange={handleChange}
             style={{ width: '100%', padding: '8px', marginTop: '5px', background: '#FFFFFF' }}
@@ -76,7 +75,7 @@ const Form = () => {
           Submit
         </button>
       </form>
-  )}
+  )};
     </div>
   );
 };

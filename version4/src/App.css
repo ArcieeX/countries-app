@@ -7,9 +7,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
+  background-color: #f8f9fa;
   border-bottom: 1px solid #e9ecef;
-  /* color: black; */
+  color: black;
   top : 10px;
   height: 80px;
   box-shadow: 0px 2px 4px 0px #0000000E;
@@ -25,21 +25,39 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
-/* .home {
+.home {
   background-color: white;
   color: black;
  
-} */
+}
 .home-components{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   align-content: center;
-  /* padding: 3px; */
+  padding: 3px;
 }
+.search-container {
 
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px; */
+}
+.filtered-data {
+  grid-row: 2/3;
+  grid-column: 1/4;
 
+}
+.ul-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr ;
+  gap: 1rem;
+ 
+}
 .saved-container{
   display: flex;
   flex-direction: row;
@@ -71,14 +89,6 @@
   color: black;
 
 }
-.filtered-data{
-  /* display: grid; */
-  grid-row: 2/3;
-  grid-column: 1/4;
-}
-.ul-grid{
-  display: grid;
-}
 
 /* country page */
 .country-page{
@@ -89,55 +99,4 @@
   padding: px;
   margin: 2px;
   /* background-color: white; */
-}
-@media (max-width: 600px){
-  .ul-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 0;
-    
-  }
-  .filtered-data {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 0;
-    padding: 1rem;
-    align-items: center;
-    align-content: center;
-  }
-}
-
-@media (min-width: 601px){
-  .ul-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    margin: 0;
-    
-  }
-  .filtered-data {
-    grid-template-columns: 1fr 1fr 1fr ;
-    gap: 1rem;
-    margin: 0;
-    padding: 1rem;
-    align-items: center;
-    align-content: center;
-  }
-}
-@media (min-width: 801px){
-  .filtered-data {
-  
-    
-    /* grid-template-columns: repeat(4, 1fr); */
-    grid-template-rows: 1fr 1fr ;
-  
-  }
-  .ul-grid {
-    
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr ;
-    gap: 1rem;
-    margin: 1rem;
-    padding: 1rem;
-   
-  }
 }
