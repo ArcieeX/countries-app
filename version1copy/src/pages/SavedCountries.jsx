@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { Box, Image, Button, Text } from "@chakra-ui/react";
-import ContactForm from '../components/ContactForm';
+import { Box, Image, Button, Text , } from "@chakra-ui/react";
+import ContactForm from '../components/ContactForm.jsx';
+import { Badge } from "@chakra-ui/react"
 
 
 
@@ -23,30 +24,31 @@ const SavedCountries = () => {
 
   return (
     <Box p={4}>
+      <div>
+          <Text fontWeight="bold">My Profile</Text>
+          <ContactForm />
+        </div>
       <Box>
-
-      <Text fontWeight="bold" >My Saved Countries</Text>
-      {savedCountries.length === 0 ? (
+       <Text fontWeight="bold" >My Saved Countries</Text>
+       {savedCountries.length === 0 ? (
         <Text fontWeight="bold" >No saved countries yet.</Text>
-      ) : (
+       ) : (
         savedCountries.map((country, index) => (
-          <Box key={index} borderWidth="1px" p={3} m={2} display="flex" alignItems="center">
-            
+          <Box key={index} borderWidth="1px" p={3} m={2} display="flex" alignItems="center"> 
             <Image src={country.flag} alt={country.name} boxSize="50px" mr={4} />
-            <Text fontWeight="bold">{country.name}</Text>
+            <Text fontSize="md" fontWeight="bold">{country.name}</Text>
             <Button ml="auto" colorScheme="red" onClick={() => handleRemoveCountry(country.name)}>
               Remove
             </Button>
           </Box>
         ))
       )}
-       <div>
-          <Text fontWeight="bold">My Profile</Text>
-          <ContactForm />
-        </div>
-        </Box>
-        </Box>  
+       
+      </Box>
+    </Box>  
       
       );
-    };
-       export default SavedCountries;
+    }
+
+export default SavedCountries;
+
