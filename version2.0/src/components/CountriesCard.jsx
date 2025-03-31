@@ -81,19 +81,4 @@ const CountriesCard = ({ data }) =>  {
 };
 export default CountriesCard;
 
-CountriesCard.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.shape({
-      common: PropTypes.string.isRequired,
-    }).isRequired,
-    flags: PropTypes.shape({
-      png: PropTypes.string.isRequired,
-      alt: PropTypes.string,
-    }).isRequired,
-    population: PropTypes.number.isRequired,
-    region: PropTypes.string.isRequired,
-    capital: PropTypes.arrayOf(PropTypes.string),
-    clickCount: PropTypes.number,
-  }).isRequired,
-};
 
