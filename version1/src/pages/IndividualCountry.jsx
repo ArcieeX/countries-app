@@ -94,12 +94,7 @@ const IndividualCountry = () => {
               <li key={index} style={{ listStyle: "none" }}>
                 <Link to={`/IndividualCountry/${neighbor.name.common}`}>
                   <Card.Root overflow="hidden" maxW="200px">
-                    <Image
-                      objectFit="fill"
-                      maxW="100%"
-                      src={neighbor.flags.png}
-                      alt={neighbor.flags.alt || "Flag"}
-                    />
+                   
                     <Box p="4">
                       <Card.Title>{neighbor.name.common}</Card.Title>
                     </Box>
